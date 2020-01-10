@@ -38,4 +38,11 @@ minikube service server
 
 7. We can use the Cluster-IP of service in the http-get of client.
 
+//Deployments
+
+1. Using kubectl
+kubectl create -f ./server/deployment.yaml
+
+2. Using Helm
+
 
