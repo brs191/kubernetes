@@ -2,14 +2,15 @@
 // Run client server in docker.
 1. Create a docker network
 docker network create jsNet
+docker network inspect jsNet (containers IPV4 address --> http://172.18.0.2:8081)
 
 2. Build server-client
-docker -t jsserver:v1 .
-docker -t jsclient:v1 .
+docker build -t jsserver:v1 .
+docker build -t jsclient:v1 .
 
 3. Run server-client
-docker -d --net jsNet jsserver:v1
-docker --net jsNet jsclient:v1
+docker run -d --net jsNet jsserver:v1
+docker run --net jsNet jsclient:v1
 
 // Run client server with kubernetes minikube
 1. install minikube/kubectl 
