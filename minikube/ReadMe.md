@@ -16,8 +16,8 @@ docker --net jsNet jsclient:v1
 
 2. build server-client images with minikube docker
 eval $(minikube docker-env)
-docker -t jsserver-mini:v1 .
-docker -t jsclient-mini:v1 .
+docker build -t jsserver-mini:v1 .
+docker build -t jsclient-mini:v1 .
 
 3. deploy server using kubectl
 kubectl run server --image=jsserver-mini:v1 --port=8081 --image-pull-policy=Never
@@ -42,7 +42,16 @@ minikube service server
 
 1. Using kubectl
 kubectl create -f ./server/deployment.yaml
+kubectl create -f ./client/deployment.yaml
 
-2. Using Helm
+<!-- Using Helm -->
+1. helm init
+2. helm create ./service 
+3. Update deployment.yaml, service.yaml, values.yaml files
+4. helm install --name server ./server (Create a deployment)
+5. helm upgrade server ./server (Upgrade deployment)
+6. helm install --name client ./client (create a deployment)
+7. helm upgrade server ./server (upgrade deployment)
+
 
 

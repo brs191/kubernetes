@@ -1,6 +1,6 @@
 var http = require('http');
 
-http.get('http://10.96.234.217:8081', resp => {
+http.get('http://10.96.172.187:8081', resp => {
     let data = '';
 
     resp.on('data', (chunk)=>{

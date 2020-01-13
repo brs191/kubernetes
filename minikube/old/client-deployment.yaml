@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-deployment
+  name: client-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: server
+      app: client
   template:
     metadata:
       labels:
-        app: server
+        app: client
     spec:
       containers:
-      - name: server
+      - name: client
         imagePullPolicy: Never
-        image: jsserver-mini:v1
+        image: jsclient-mini:v1
         ports:
         - containerPort: 8081
